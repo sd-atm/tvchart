@@ -1,0 +1,21 @@
+{% extends "core/base.html" %}
+{% block body %}
+<div id="container" class="w-screen h-screen"></div>
+<script type="module">
+    const { createChart } = LightweightCharts
+
+    const container = document.getElementById('container');
+    const chart = createChart(container {%if chart_options %}, {{ chart_options }} {%endif%});
+
+    {{drawings}}
+
+    {%if legend_html %}
+    const legend = document.createElement('div');
+    legend.style = `position: absolute; left: 12px; top: 12px; z-index: 1; font-size: 14px; font-family: sans-serif; line-height: 18px; font-weight: 300;`;
+    container.appendChild(legend);
+
+    legend.innerHTML = `{{legend_html}}`;
+    {%endif%}
+
+</script>
+{% endblock %}
