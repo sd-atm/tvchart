@@ -2,6 +2,7 @@
 """Python setup.py for tvchart package"""
 import io
 import os
+from glob import glob
 
 from setuptools import find_packages, setup
 
@@ -41,6 +42,8 @@ setup(
     author="Subhadeep Das",
     packages=find_packages(exclude=["tests", ".github"]),
     install_requires=read_requirements("requirements.txt"),
+    include_package_data=True,
+    package_data={"tvchart": ["**/**.html"]},
     # entry_points={
     #     "console_scripts": ["project_name = project_name.__main__:main"]
     # },
