@@ -362,7 +362,7 @@ class TVChart:
         content = self.__fill_template(
             "index.html",
             {
-                "chart_options": orjson.dumps(self.chart_options).decode("utf-8"),
+                "chart_options": self.chart_options,
                 "legend_html": self.legend_html,
                 "drawings": "\n\n".join(self.__drawings),
             },
